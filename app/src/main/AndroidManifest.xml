@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
-            android:label="SecureFlag Enforcer"
+            android:label="Privacy Guard"
             android:allowBackup="false">
 
         <!-- LSPosed / Xposed declarations must be INSIDE <application> -->

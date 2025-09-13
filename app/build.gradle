@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace "dev.secureflag.enforcer"
+    namespace "dev.privacyguard"
     compileSdk 34
 
     signingConfigs {
@@ -17,7 +17,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "dev.secureflag.enforcer"
+        applicationId "dev.privacyguard"
         minSdk 26
         targetSdk 34
         versionCode 1

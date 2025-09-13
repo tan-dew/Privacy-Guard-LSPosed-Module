@@ -1,3 +1,3 @@
--keep class dev.secureflag.enforcer.** { *; }
+-keep class dev.privacyguard.** { *; }
 -keep class de.robv.android.xposed.** { *; }
 -dontwarn de.robv.android.xposed.**

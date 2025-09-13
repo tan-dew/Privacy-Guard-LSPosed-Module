@@ -13,5 +13,5 @@ dependencyResolutionManagement {
         maven { url 'https://api.xposed.info/' } // Xposed API
     }
 }
-rootProject.name = "SecureFlagEnforcer"
+rootProject.name = "PrivacyGuard"
 include(":app")

@@ -1,4 +1,4 @@
-package dev.secureflag.enforcer
+package dev.privacyguard
 
 import android.app.Activity
 import android.view.Window
@@ -8,14 +8,14 @@ import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 
-class SecureFlagModule : IXposedHookLoadPackage {
+class PrivacyGuardModule : IXposedHookLoadPackage {
 
     private val FLAG_SECURE = 0x00002000
 
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         // LSPosed will only load us in the apps you’ve scoped (TickTick/Anytype/Notion),
         // so no need for package-name checks here. Still, log once for sanity:
-        XposedBridge.log("[SecureFlag] Loaded in ${lpparam.packageName}")
+        XposedBridge.log("[PrivacyGuard] Loaded in ${lpparam.packageName}")
 
         // --- Hook Window.addFlags(int) to OR-in FLAG_SECURE
         XposedBridge.hookAllMethods(Window::class.java, "addFlags", object : XC_MethodHook() {
@@ -43,7 +43,7 @@ class SecureFlagModule : IXposedHookLoadPackage {
                 // Remove FLAG_SECURE bit from the clear-mask so it won't be cleared
                 val sanitized = toClear and FLAG_SECURE.inv()
                 if (sanitized != toClear) {
-                    XposedBridge.log("[SecureFlag] Prevented clearFlags(FLAG_SECURE) in ${lpparam.packageName}")
+                    XposedBridge.log("[PrivacyGuard] Prevented clearFlags(FLAG_SECURE) in ${lpparam.packageName}")
                 }
                 param.args[0] = sanitized
             }
@@ -64,7 +64,7 @@ class SecureFlagModule : IXposedHookLoadPackage {
                 }
             )
         } catch (t: Throwable) {
-            XposedBridge.log("[SecureFlag] Failed to hook Activity.onResume: $t")
+            XposedBridge.log("[PrivacyGuard] Failed to hook Activity.onResume: $t")
         }
     }
 }
