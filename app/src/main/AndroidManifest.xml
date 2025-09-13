@@ -1,0 +1,20 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+            android:label="SecureFlag Enforcer"
+            android:allowBackup="false">
+
+        <!-- LSPosed / Xposed declarations must be INSIDE <application> -->
+        <meta-data
+                android:name="xposedmodule"
+                android:value="true" />
+        <meta-data
+                android:name="xposeddescription"
+                android:value="Force-enable FLAG_SECURE for scoped apps" />
+        <meta-data
+                android:name="xposedminversion"
+                android:value="93" />
+
+    </application>
+
+</manifest>

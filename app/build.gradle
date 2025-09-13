@@ -1,0 +1,57 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace "dev.secureflag.enforcer"
+    compileSdk 34
+
+    signingConfigs {
+        release {
+            storeFile file("../my-release-key.jks")
+            storePassword "YOUR_STORE_PASSWORD"
+            keyAlias "release"
+            keyPassword "YOUR_KEY_PASSWORD"
+        }
+    }
+
+    defaultConfig {
+        applicationId "dev.secureflag.enforcer"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    // 🔧 Make Java compile with 17
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    // 🔧 Make Kotlin target 17
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    // (optional but recommended) enforce toolchain = 17
+    kotlin {
+        jvmToolchain(17)
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions { resources.excludes += ['META-INF/*'] }
+}
+
+dependencies {
+    compileOnly 'de.robv.android.xposed:api:82'
+}
