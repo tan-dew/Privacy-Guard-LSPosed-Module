@@ -9,11 +9,21 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("../my-release-key.jks")
-            storePassword "YOUR_STORE_PASSWORD"
-            keyAlias "release"
-            keyPassword "YOUR_KEY_PASSWORD"
+            storeFile file(project.property("RELEASE_STORE_FILE"))
+            storePassword project.property("RELEASE_STORE_PASSWORD")
+            keyAlias project.property("RELEASE_KEY_ALIAS")
+            keyPassword project.property("RELEASE_KEY_PASSWORD")
         }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug { minifyEnabled false }
     }
 
     defaultConfig {
@@ -38,15 +48,6 @@ android {
     // (optional but recommended) enforce toolchain = 17
     kotlin {
         jvmToolchain(17)
-    }
-
-    buildTypes {
-        release {
-            signingConfig signingConfigs.release
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
     }
 
     packagingOptions { resources.excludes += ['META-INF/*'] }

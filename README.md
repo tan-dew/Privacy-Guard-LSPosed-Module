@@ -33,10 +33,12 @@ Combine this module with any app locker of your choice if you want both **screen
 2. Install **Zygisk-LSPosed**  
    Flash LSPosed (Zygisk version) through Magisk → reboot.
 
-3. Download `PrivacyGuard-v1.0.apk` from **Assets** and install it on your phone
+3. Download the latest apk from **[Releases](https://github.com/tan-dew/Privacy-Guard-LSPosed-Module/releases/)** and install it on your phone.
 
 4. Enable in **LSPosed Manager**
     - Open **LSPosed Manager → Modules → Privacy Guard**
     - Tap **Scope** and select the apps you want to protect.
 
-5. Reboot phone
+5. Reboot phone.
+
+**It should block screenshots, block screen recording and block showcasing app content on recent apps page for the selected apps now.**
