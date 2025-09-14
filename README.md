@@ -16,6 +16,30 @@ Combine this module with any app locker of your choice if you want both **screen
 
 ---
 
+## Backstory
+
+This project actually started with something pretty personal.
+
+I was planning a surprise for my wife. I was jotting down my ideas in Anytype and Google Keep. The catch? My wife knows the pattern to unlock my phone. If she stumbled onto those apps, the surprise would be ruined.
+
+Naturally, I went looking for ways to lock or hide my notes. Here’s what I tried:
+
+- Built-in App Locker (ROM feature)
+  - ✅ Reliable and built-in 
+  - ❌ Used the same lock credentials as my screen lock — not private enough
+- Android 15 Private Space
+  - ✅ Could set a completely different fingerprint, PIN, or password
+  - ❌ Too many steps every time I wanted to access the apps
+- Third-Party App Lockers 
+  - ✅ Allowed a different lock than the phone screen 
+  - ❌ Still showed the last used screen in the recents page (meaning my surprise notes would still be visible!)
+
+That’s when I realized Xiaomi’s MIUI and HyperOS had a feature I really wanted: blurred recents for selected apps. But outside their ecosystem, I couldn’t find anything like it.
+
+So, I decided to build my own solution. This module is the result — a simple way to hide sensitive app content from the recents page, and something you can pair with an app locker for stronger privacy.
+
+---
+
 ## ✅ Minimum Requirements
 
 - Rooted Android Phone
